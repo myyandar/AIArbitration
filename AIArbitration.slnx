@@ -1,0 +1,10 @@
+<Solution>
+  <Project Path="AIArbitration.API/AIArbitration.API.csproj">
+    <BuildDependency Project="AIArbitration.Core/AIArbitration.Core.csproj" />
+    <BuildDependency Project="AIArbitration.Infrastructure/AIArbitration.Infrastructure.csproj" />
+  </Project>
+  <Project Path="AIArbitration.AppHost/AIArbitration.AppHost.csproj" />
+  <Project Path="AIArbitration.Core/AIArbitration.Core.csproj" />
+  <Project Path="AIArbitration.Infrastructure/AIArbitration.Infrastructure.csproj" />
+  <Project Path="AIArbitration.ServiceDefaults/AIArbitration.ServiceDefaults.csproj" />
+</Solution>

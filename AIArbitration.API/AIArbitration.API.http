@@ -1,0 +1,6 @@
+@AIArbitration.API_HostAddress = http://localhost:5245
+
+GET {{AIArbitration.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

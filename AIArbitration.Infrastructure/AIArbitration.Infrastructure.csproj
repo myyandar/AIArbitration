@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\ArbitrationContext.cs" />
+    <Compile Remove="Services\MockProviderAdapter.cs" />
+    <Compile Remove="Services\ProviderSpecificAdapters\ProviderAdapterFactory.cs" />
+    <Compile Remove="Services\_ArbitrationEngine.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.Core" Version="4.0.3.4" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.0" />
+    <PackageReference Include="Soenneker.Aws.BasicCredentials" Version="4.0.86" />
+    <PackageReference Include="StackExchange.Redis" Version="2.10.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AIArbitration.Core\AIArbitration.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\AIArbitration.Infrastructure\Interfaces" />
+  </ItemGroup>
+
+</Project>
