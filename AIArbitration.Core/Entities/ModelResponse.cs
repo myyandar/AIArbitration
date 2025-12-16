@@ -41,5 +41,6 @@ namespace AIArbitration.Core.Entities
         public int TotalTokens { get; set; }
         public List<ModelChoice> Choices { get; set; }
         public string Provider { get; set; }
+        public string? FinishReason { get; set; }
     }
 }

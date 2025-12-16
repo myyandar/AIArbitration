@@ -1832,6 +1832,36 @@ namespace AIArbitration.Infrastructure.Providers
                 _logger.LogError(ex, "Error creating configuration change log for provider: {ProviderId}", ProviderId);
             }
         }
+
+        private GeminiGenerateContentRequest MapToGeminiRequest(ChatRequest request)
+        {
+            var contents = new List<GeminiContent>();
+
+            // Gemini uses a flat list of alternating user/assistant messages
+            foreach (var msg in request.Messages)
+            {
+                contents.Add(new GeminiContent
+                {
+                    Role = msg.Role == ChatRole.Assistant ? "model" : "user",
+                    Parts = new List<GeminiPart>
+                {
+                    new GeminiPart { Text = msg.Content }
+                }
+                });
+            }
+
+            return new GeminiGenerateContentRequest
+            {
+                Contents = contents,
+                GenerationConfig = new GeminiGenerationConfig
+                {
+                    Temperature = (float?)request.Temperature,
+                    TopP = (float?)request.TopP,
+                    MaxOutputTokens = (int?)request.MaxTokens
+                },
+                SafetySettings = GetSafetySettings()
+            };
+        }
         #endregion
     }
 
